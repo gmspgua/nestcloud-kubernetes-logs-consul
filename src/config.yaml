@@ -1,0 +1,9 @@
+consul:
+  host: hashicorp-consul-server
+  port: 8500
+service:
+  name: nestcloud-kubernetes-example-consul
+  port: 3200
+config:
+  name: ${{ service.name }}-config
+

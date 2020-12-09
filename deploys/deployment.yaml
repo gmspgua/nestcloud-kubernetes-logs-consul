@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nestcloud-kubernetes-example
+  name: nestcloud-kubernetes-example
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nestcloud-kubernetes-example
+  template:
+    metadata:
+      labels:
+        app: nestcloud-kubernetes-example
+    spec:
+      containers:
+        - image: nestcloud/nestcloud-kubernetes-example:1.1.2
+          imagePullPolicy: IfNotPresent
+          name: proxy
+          ports:
+            - containerPort: 3200
+              protocol: TCP
+          resources: {}
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: RUNTIME
+              value: kubernetes
+            - name: CONSUL_IP
+              value: localhost
+            - name: PORT
+              value: '8500'
+      serviceAccountName: nestcloud-kubernetes-example-account
