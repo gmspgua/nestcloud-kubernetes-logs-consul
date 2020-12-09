@@ -48,7 +48,7 @@ kubectl create -f ./deploys/service.yaml
 
 ## Stay in touch
 
-- Author - [Miaowing](https://github.com/miaowing)
+- Author - Guilherme Marcelino
 
 ## License
 
